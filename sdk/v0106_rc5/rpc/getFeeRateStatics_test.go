@@ -2,7 +2,7 @@ package rpc
 
 import (
 	"github.com/cryptape/ckb-go-integration-test/sdk"
-	"github.com/onsi/gomega"
+	"github.com/stretchr/testify/assert"
 	"log"
 	"testing"
 )
@@ -10,14 +10,13 @@ import (
 func TestGetFeeRateStatics(t *testing.T) {
 	for _, data := range testDatas {
 		t.Run("getFeeRateStatics", func(t *testing.T) {
-			gomega.RegisterTestingT(t)
 			statics, err := sdk.Client.GetFeeRateStatics(sdk.Ctx, data.target)
 			if err != nil {
 				return
 			}
 			log.Printf("median:%d\t mean:%d", statics.Median, statics.Mean)
-			//gomega.Expect(statics.Mean).To(gomega.Not(nil))
-			//gomega.Expect(statics.Median).To(gomega.Not(nil))
+			assert.NotNil(t, statics.Mean)
+			assert.NotNil(t, statics.Median)
 		})
 	}
 }

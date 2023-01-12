@@ -2,7 +2,7 @@ package sdk
 
 import (
 	"context"
-	"github.com/nervosnetwork/ckb-sdk-go/rpc"
+	"github.com/nervosnetwork/ckb-sdk-go/v2/rpc"
 )
 
 var (

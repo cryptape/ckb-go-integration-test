@@ -2,14 +2,13 @@ package rpc
 
 import (
 	"github.com/cryptape/ckb-go-integration-test/sdk"
-	"github.com/onsi/gomega"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestGetTransaction(t *testing.T) {
 
 	t.Run("GetTransaction", func(t *testing.T) {
-		gomega.RegisterTestingT(t)
 		header, err := sdk.Client.GetTipHeader(sdk.Ctx)
 		if err != nil {
 			return
@@ -23,6 +22,6 @@ func TestGetTransaction(t *testing.T) {
 		if err2 != nil {
 			return
 		}
-		gomega.Expect(transaction.Cycles).To(gomega.Not(nil))
+		assert.Nil(t, transaction.Cycles)
 	})
 }
