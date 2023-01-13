@@ -15,4 +15,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Test
-        run: go get github.com/cryptape/ckb-go-integration-test/sdk && cd sdk/ && go test ./... -short
+        run: go get -t github.com/cryptape/ckb-go-integration-test/sdk/v0106_rc5/rpc && cd sdk/ && go test ./... -short
