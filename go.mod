@@ -3,7 +3,7 @@ module github.com/cryptape/ckb-go-integration-test
 go 1.18
 
 require (
-	github.com/nervosnetwork/ckb-sdk-go/v2 v2.1.1
+	github.com/nervosnetwork/ckb-sdk-go/v2  v2.2.0
 	github.com/onsi/gomega v1.4.3
 	github.com/stretchr/testify v1.7.2
 )
