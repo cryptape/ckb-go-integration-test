@@ -1,4 +1,4 @@
-package v108
+package rpc
 
 import (
 	"github.com/cryptape/ckb-go-integration-test/sdk"
