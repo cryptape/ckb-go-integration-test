@@ -1,0 +1,37 @@
+name: Test Multisig
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  # 允许手动触发工作流
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.18'
+          
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Clone ckb-sdk-go repository
+        run: |
+          git clone https://github.com/15168316096/ckb-sdk-go.git -b exec/upgrade-multisig
+          
+      - name: Setup dependencies
+        run: |
+          cd ckb-sdk-go
+          go mod tidy
+          cd ..
+          go mod tidy
+          
+      - name: Run tests
+        run: |
+          cd sdk/
+          go test -v ./newMultiSign_test.go
