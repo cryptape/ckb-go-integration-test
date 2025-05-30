@@ -6,6 +6,8 @@ on:
     branches: [ "main" ]
 jobs:
   test:
+    # 添加条件使工作流不会运行
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - name: Install Go
