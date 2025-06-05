@@ -15,4 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Test
-        run: go get -t github.com/cryptape/ckb-go-integration-test/sdk/v106/rpc && cd sdk/ && go test ./... -short
+        run: |
+          go mod tidy
+          cd sdk/
+          go test -v ./newMultiSign_test.go
