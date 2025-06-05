@@ -25,5 +25,4 @@ jobs:
           go mod tidy
       - name: Test
         run: |
-          cd sdk/
-          go test -v -run TestMultisigTxPoolAccept
+          go test -v ./...
