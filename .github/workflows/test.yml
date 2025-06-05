@@ -26,4 +26,4 @@ jobs:
       - name: Test
         run: |
           cd sdk/
-          go test -v ./newMultiSign_test.go
+          go test -v -run TestMultisigTxPoolAccept
