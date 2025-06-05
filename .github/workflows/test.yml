@@ -14,8 +14,12 @@ jobs:
           go-version: '1.18'
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Setup dependencies
+        run: |
+          # 添加replace指令解决依赖冲突
+          go mod edit -replace github.com/btcsuite/btcd=github.com/btcsuite/btcd@v0.0.0-20171128150713-2e60448ffcc6
+          go mod tidy
       - name: Test
         run: |
-          go mod tidy
           cd sdk/
           go test -v ./newMultiSign_test.go
